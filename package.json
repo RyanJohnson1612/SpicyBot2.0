@@ -9,6 +9,7 @@
   "author": "Ryan Johnson",
   "license": "MIT",
   "dependencies": {
+    "node": "11.14.0",
     "bufferutil": "^4.0.1",
     "discord.js": "^11.6.4",
     "ffmpeg": "0.0.4",
