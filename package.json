@@ -8,8 +8,11 @@
   },
   "author": "Ryan Johnson",
   "license": "MIT",
-  "dependencies": {
+  "engines": {
     "node": "11.14.0",
+    "npm": "6.7.0"
+  },
+  "dependencies": {
     "bufferutil": "^4.0.1",
     "discord.js": "^11.6.4",
     "ffmpeg": "0.0.4",
