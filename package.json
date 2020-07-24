@@ -1,0 +1,32 @@
+{
+  "name": "spicybot",
+  "version": "0.0.1",
+  "description": "A bot for the Spicy Bois discord server",
+  "main": "./src/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Johnson",
+  "license": "MIT",
+  "dependencies": {
+    "bufferutil": "^4.0.1",
+    "discord.js": "^11.6.4",
+    "ffmpeg": "0.0.4",
+    "i": "^0.3.5",
+    "node-opus": "^0.2.7",
+    "windows-build-tools": "^5.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john1049/SpicyBot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/john1049/SpicyBot/issues"
+  },
+  "homepage": "https://github.com/john1049/SpicyBot#readme"
+}
