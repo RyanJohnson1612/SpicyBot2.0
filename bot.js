@@ -1,6 +1,5 @@
 ﻿const Discord = require('discord.js');
 const client = new Discord.Client();
-const settings = require('./config.json');
 
 var userCooldowns = {};
 
