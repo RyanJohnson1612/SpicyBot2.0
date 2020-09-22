@@ -17,7 +17,8 @@
     "discord.js": "^11.6.4",
     "ffmpeg": "0.0.4",
     "i": "^0.3.5",
-    "node-opus": "^0.2.7"
+    "node-opus": "^0.2.7",
+    "ytdl-core-discord": "^1.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -1,7 +1,9 @@
 ﻿const Discord = require('discord.js');
+const ytdl = require('ytdl-core-discord');
 const client = new Discord.Client();
 
 var userCooldowns = {};
+var queue = [];
 
 client.on('ready',() => {
     console.log('Online');
@@ -19,7 +21,6 @@ client.on('message', message => {
   }
 
   if(message.content === '!quack'){
-    console.log('quack');
     message.delete(3000);
     if(message.member.voiceChannel && (userCooldowns[message.member.author] == undefined || userCooldowns[message.member.author] == 0)){
       console.log('join channel');
@@ -71,6 +72,19 @@ client.on('message', message => {
       }
     }
   }
+
+  if(message.content.includes('!jukebox')){
+    var url = message.content.split('!jukebox')[1];
+    console.log(url);
+    message.member.voiceChannel.join()
+      .then(connection => {
+        play(connection, url)
+      })
+  }
 });
+
+async function play(connection, url) {
+  connection.playOpusStream(await ytdl(url));
+}
 
 client.login(process.env.token);
