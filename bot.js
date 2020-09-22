@@ -13,25 +13,18 @@ client.on('ready',() => {
 client.on('message', message => {
   if(message.content === '!test'){
     message.channel.send('✓');
-
-    let channel = message.member.voiceChannel;
-    channel.join()
-      .then(connection => { console.log('Connected!')})
-      .catch(error => { console.log(error)});
   }
 
   if(message.content === '!quack'){
     message.delete(3000);
     if(message.member.voiceChannel && (userCooldowns[message.member.author] == undefined || userCooldowns[message.member.author] == 0)){
-      console.log('join channel');
+      
       userCooldowns[message.member.author] = 10;
       let channel = message.member.voiceChannel;
       console.log(userCooldowns[message.member.author]);
       channel.join()
       .then(connection => {
-        console.log('channel ' + message.member.voiceChannel.name + ' joined');
         const dispatcher = connection.playFile('./sounds/mac-quack.mp3', {});
-        console.log('test');
         message.channel.send(':duck:').then(d_msg => { d_msg.delete(3000); });
         dispatcher.on('end', () =>  {
           message.member.voiceChannel.leave();
@@ -75,10 +68,19 @@ client.on('message', message => {
 
   if(message.content.includes('!jukebox')){
     var url = message.content.split('!jukebox')[1];
-    console.log(url);
+
     message.member.voiceChannel.join()
       .then(connection => {
-        play(connection, url)
+        let videoInfo = await ytdl.getInfo(url);
+        let video = {
+          title: videoInfo.title,
+          url: videoInfo.video_url, 
+        };
+        message.channel.send(`Now playing: ${video.title}`);
+        play(connection, url);
+      })
+      .catch(error => {
+        console.log(error)
       })
   }
 });
