@@ -16,7 +16,7 @@
     "bufferutil": "^4.0.1",
     "discord.js": "^11.6.4",
     "ffmpeg": "0.0.4",
-    "i": "^0.3.5",
+    "i": "^0.3.7",
     "node-opus": "^0.2.7"
   },
   "devDependencies": {
